@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  docker-env-vars-test:
+    image: docker-env-vars-test
+    container_name: docker-env-vars-test
+    build:
+      context: .
+      args:
+        - NGINX_PORT=${NGINX_PORT}
+        - NGINX_HOST=${NGINX_HOST}
+    ports:
+      - "${NGINX_PORT}:${NGINX_PORT}"

@@ -1,24 +1,5 @@
-# test
+When change the port in .env please be aware of rebuild the project.
 
-## Project setup
-```
-yarn install
-```
+```docker-compose up --build```
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+This is because the port is passed through the dockerfile when the image is build. Finally it will be applied in the server directive (server { ... }) of the nginx.conf.
