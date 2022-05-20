@@ -16,10 +16,9 @@ FROM nginx:latest
 WORKDIR /usr/share/nginx/html
 
 ARG NGINX_HOST
-ENV NGINX_HOST=$NGINX_HOST
 ARG NGINX_PORT
-ENV NGINX_PORT=$NGINX_PORT
+ENV NGINX_HOST=$NGINX_HOST NGINX_PORT=$NGINX_PORT
 
-COPY nginx/templates /etc/nginx/templates/
+COPY nginx/default.conf.template /etc/nginx/templates/
 
 COPY --from=builder /app/dist .
